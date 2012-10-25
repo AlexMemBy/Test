@@ -1,29 +1,34 @@
 <html>
     <head>
     <title>Java script для фоновой музыки</title>
-    <script language="javascript" type="text/javascript">
-    <!--//
-    function oflameron() {
-    document.all.backsound.src = "backmusic/sample.mid"
-      //http://vk.com/search?c[q]=Skillet&c[section]=audio
-    }
-    //-->
-    </script>
-    <BGSOUND id="backsound">
+    <script language="javascript">
+document.write(document.lastModified)
+</script>
+<script language="javascript">
+function timer()
+{setTimeout("alert('Самоуничтожение компьютера будет через, 5,4,3,2,1')", 2000);}
+</script>
+...
+<button onclick="timer()">Нажми, не пожалеешь:)</button>
+<script language="javascript">
+function count(form)
+{form.result.value=eval(form.expression.value)}
+</script>
+...
+<body>
+<form>Введите выражение: 
+<input type="text" name="expression" size="15">
+<input type="button" value="Вычислить" onclick="count(this.form)">
+<br>Результат: 
+<input type="text" name="result" size="15">
+<br>
+</form>
+</body>
+
     </head>
-    <body onload="oflameron()">
-    
-    ...
-    
     </body>
     </html>
      
-
-
-
-
-
-
 
 
 
