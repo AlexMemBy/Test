@@ -1,6 +1,38 @@
-*.class
+<html>
+    <head>
+    <title>Java script для фоновой музыки</title>
+    <script language="javascript" type="text/javascript">
+    <!--//
+    function oflameron() {
+    document.all.backsound.src = "backmusic/sample.mid"
+      //http://vk.com/search?c[q]=Skillet&c[section]=audio
+    }
+    //-->
+    </script>
+    <BGSOUND id="backsound">
+    </head>
+    <body onload="oflameron()">
+    
+    ...
+    
+    </body>
+    </html>
+     
 
-# Package Files #
-*.jar
-*.war
-*.ear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
