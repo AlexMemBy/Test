@@ -31,32 +31,117 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h3>Welcome to GitHub Pages.</h3>
+        <p>
+</p>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+&lt;!--
+// set speed of banner (pause in milliseconds between addition of new character)
+var speed = 5 // decrease value to increase speed (must be positive)
+// set pause between completion of message and beginning of following message
+var pause = 1500 // increase value to increase pause
+// set initial values
+var timerID = null
+var bannerRunning = false
+// create array
+var ar = new Array()
+// assign the strings to the array's elements
+ar[0] = "Добро пожаловать"
+ar[1] = "на сайт catalogsv-3dn.narod.ru "
+// assign index of current message
+var message = 0
+// empty string initialization
+var state = ""
+// no value is currently being displayed
+clearState()
+// stop the banner if it is currently running
+function stopBanner() {
+    // if banner is currently running
+    if (bannerRunning)
+        // stop the banner
+        clearTimeout(timerID)
+    // banner is now stopped
+    bannerRunning = false
+}
+// start the banner
+function startBanner() {
+    // make sure the banner is stopped
+    stopBanner()
+    // start the banner from the current position
+    showBanner()
+}
+// assign state a string of "0" characters of the length of the current message
+function clearState() {
+    // initialize to empty string
+    state = ""
+    // create string of same length containing 0 digits
+    for (var i = 0; i &lt; ar[message].length; ++i) {
+        state += "0"
+    }
+}
+// display the current message
+function showBanner() {
+    // if the current message is done
+    if (getString()) {
+        // increment message
+        message++
+        // if new message is out of range wrap around to first message
+        if (ar.length &lt;= message)
+            message = 0
+        // new message is first displayed as empty string
+        clearState()
+        // display next character after pause milliseconds
+        timerID = setTimeout("showBanner()", pause)
+        // banner is now running
+        bannerRunning = true
+    } else {
+        // initialize to empty string
+        var str = ""
+        // built string to be displayed (only character selected thus far are displayed)
+        for (var j = 0; j &lt; state.length; ++j) {
+            str += (state.charAt(j) == "1") ? ar[message].charAt(j) : "     "
+        }
+        // partial string is placed in status bar
+        window.status = str
+        // add another character after speed milliseconds
+        timerID = setTimeout("showBanner()", speed)
+        // banner is now running
+        bannerRunning = true
+    }
+}
+function getString() {
+    // set variable to true (it will stay true unless proven otherwise)
+    var full = true
+    // set variable to false if a free space is found in string (a not-displayed char)
+    for (var j = 0; j &lt; state.length; ++j) {
+        // if character at index j of current message has not been placed in displayed string
+        if (state.charAt(j) == 0)
+            full = false
+    }
+    // return true immediately if no space found (avoid infinitive loop later)
+    if (full)
+        return true
+    // search for random until free space found (braoken up via break statement)
+    while (1) {
+        // a random number (between 0 and state.length - 1 == message.length - 1)
+        var num = getRandom(ar[message].length)
+        // if free space found break infinitive loop
+        if (state.charAt(num) == "0")
+            break
+    }
+    // replace the 0 character with 1 character at place found
+    state = state.substring(0, num) + "1" + state.substring(num + 1, state.length)
+    // return false because the string was not full (free space was found)
+    return false
+}
+function getRandom(max) {
+    return Math.round((max - 1) * Math.random())
+}
+// --&gt;
+<p>
+</p>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
 
-<h3>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
       </section>
     </div>
 
